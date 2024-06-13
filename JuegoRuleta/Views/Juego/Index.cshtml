@@ -1,0 +1,96 @@
+@{
+    ViewData["Title"] = "Juego de la ruleta";
+}
+
+
+<style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .casino-container {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #5e5b5b; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 { 
+            color: #ffcc00; 
+        }
+        h5 { 
+            color: #ffa3a3; 
+        }
+        p {
+            color: #000000; 
+        }
+        .form-control, .btn {
+            margin-bottom: 10px;
+        }
+        .btn-info {
+            background-color: #ffcc00;
+            border-color: #ffcc00;
+            color: #1b1b1b;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        .btn-info:hover {
+            background-color: #e6b800;
+            border-color: #e6b800;
+        }
+        .text-center {
+            text-align: center;
+        }
+        #resultado {
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+        .rojo {
+            color: red;
+        }
+        .negro {
+            color: #010101; 
+        }
+        .verde {
+            color: green;
+        }
+</style>
+
+<body>
+    <div class="container casino-container">
+        <div class="row d-flex align-items-center form-inline">
+            <h5>PRIMERO DEBES INGRESAR TUS DATOS PARA PODER GIRAR LA RULETA</h5>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <input type="text" class="form-control input-validar" id="NombreJugador" maxlength="80" required placeholder="Nombre y Apellido"/>  
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <input type="number" class="form-control input-validar" id="Saldo" maxlength="13" required placeholder="Saldo" />  
+            </div>
+            <div class="col-lg-2 justify-content-end">
+                <button type="button" title="Guardar Jugador" class="btn btn-info" onclick="GuardarJugador()">Guardar</button>
+            </div>
+        </div>
+        <hr>
+        <div class="text-center">
+            <h1>Ruleta de Casino</h1>
+            <p>Saldo: <span id="saldo_consultar">0</span> créditos</p>
+            <p>Introduce tu apuesta:</p>
+            <input type="number" class="form-control" id="montoApuesta" placeholder="Monto de la apuesta">
+            <input type="text" class="form-control" id="apuesta" placeholder="Número, color, par/impar">
+            <button type="button" title="Girar Ruleta" class="btn btn-success" onclick="girarRuleta()">Girar Ruleta</button>
+
+            <div id="resultado" class="mt-3"></div>
+            <div id="apuestaResultado" class="mt-3"></div>
+        </div>
+    </div>
+
+</body>
+
+    @section Scripts {
+        <script src="~/js/juego-1.0.js"></script>
+    }
